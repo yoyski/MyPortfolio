@@ -1,0 +1,26 @@
+@import "tailwindcss";
+
+/* Modern thin scrollbar (works in most modern browsers) */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background-color: #555;
+  border-radius: 4px;
+}
+
+.chatbot_container::-webkit-scrollbar-thumb {
+  background: #888888;
+  border-radius: 8px;
+}
+
+.message pre {
+  background: #222222;
+  color: #fefefe;
+  padding: 10px;
+  border-radius: 8px;
+  overflow-x: auto;
+}
