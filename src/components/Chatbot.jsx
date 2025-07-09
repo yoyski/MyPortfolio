@@ -17,6 +17,7 @@ export default function Chatbot({ isOpen, onClose }) {
   const [chats, setChats] = useState([]);
   const [userMessage, setUserMessage] = useState("");
   const scrollRef = useRef(null);
+  const textareaRef = useRef(null);
   const { transcript, resetTranscript, listening } = useSpeechRecognition();
 
   useEffect(() => {
@@ -48,6 +49,12 @@ export default function Chatbot({ isOpen, onClose }) {
       100
     );
     handleFetch(msg, id, newChats);
+
+    // Reset message and textarea height
+    setUserMessage("");
+    if (textareaRef.current) {
+      textareaRef.current.style.height = "auto";
+    }
   };
 
   const handleFetch = async (text, id, allChats) => {
@@ -80,11 +87,19 @@ export default function Chatbot({ isOpen, onClose }) {
     );
   };
 
+  const handleInput = () => {
+    const textarea = textareaRef.current;
+    if (textarea) {
+      textarea.style.height = "auto"; // Reset
+      textarea.style.height = textarea.scrollHeight + "px"; // Expand
+    }
+  };
+
   if (!isOpen) return null;
 
   return (
-    <div className="fixed bottom-24 right-6 w-[90vw] max-w-md z-50">
-      <div className="w-full h-[80vh] flex flex-col rounded-2xl bg-[#1e1e1e] border border-gray-700 shadow-2xl overflow-hidden">
+    <div className="fixed bottom-0 left-0 right-0 top-0 z-50">
+      <div className="w-full h-screen flex flex-col bg-[#1e1e1e] border border-gray-700 shadow-2xl overflow-hidden">
         {/* Header */}
         <div className="bg-blue-600 text-white p-4 font-semibold text-lg flex justify-between items-center">
           <div className="flex items-center gap-3">
@@ -110,7 +125,7 @@ export default function Chatbot({ isOpen, onClose }) {
             chats.map((chat) =>
               chat.type === "user" ? (
                 <div key={chat.id} className="text-right">
-                  <div className="inline-block bg-blue-600 text-white px-4 py-2 rounded-2xl text-sm max-w-[80%]">
+                  <div className="message inline-block bg-blue-600 text-white px-4 py-2 rounded-2xl text-sm max-w-[80%] break-words">
                     {chat.message}
                   </div>
                   <div className="text-[10px] text-gray-500 mt-1">
@@ -119,7 +134,7 @@ export default function Chatbot({ isOpen, onClose }) {
                 </div>
               ) : (
                 <div key={chat.id} className="text-left">
-                  <div className="inline-block bg-[#2b2b2b] text-white px-4 py-2 rounded-2xl text-sm max-w-[80%]">
+                  <div className="message inline-block bg-[#2b2b2b] text-white px-4 py-2 rounded-2xl text-sm max-w-[80%]">
                     <ReactMarkdown>{chat.message}</ReactMarkdown>
                   </div>
                   <div className="text-[10px] text-gray-500 mt-1">
@@ -135,18 +150,17 @@ export default function Chatbot({ isOpen, onClose }) {
         {/* Controls */}
         <div className="bg-[#1e1e1e] px-3 py-3 flex items-center gap-3">
           <textarea
+            ref={textareaRef}
             value={userMessage}
             onChange={(e) => setUserMessage(e.target.value)}
+            onInput={handleInput}
             placeholder="Type a message..."
-            className="flex-1 text-sm bg-[#2a2a2a] text-white rounded-full px-4 py-2 resize-none focus:outline-none placeholder-gray-400"
+            className="flex-1 text-sm bg-[#2a2a2a] text-white rounded-2xl px-4 py-2 resize-none focus:outline-none placeholder-gray-400 max-h-40 overflow-auto"
             rows={1}
           />
           <div className="controller-container h-full flex">
             <button
-              onClick={() => {
-                handleSent(userMessage);
-                setUserMessage("");
-              }}
+              onClick={() => handleSent(userMessage)}
               className="px-2 py-2 rounded-full hover:bg-blue-700 transition"
             >
               <FontAwesomeIcon
