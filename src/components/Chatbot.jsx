@@ -98,8 +98,8 @@ export default function Chatbot({ isOpen, onClose }) {
   if (!isOpen) return null;
 
   return (
-    <div className="fixed bottom-0 left-0 right-0 top-0 z-50">
-      <div className="w-full h-screen flex flex-col bg-[#1e1e1e] border border-gray-700 shadow-2xl overflow-hidden">
+    <div className="fixed bottom-0 right-4 w-[92vw] sm:w-[85vw] md:w-[70vw] lg:w-[600px] xl:w-[700px] max-w-full z-50">
+      <div className="w-full h-[80vh] flex flex-col rounded-2xl bg-[#1e1e1e] border border-gray-700 shadow-2xl overflow-hidden">
         {/* Header */}
         <div className="bg-blue-600 text-white p-4 font-semibold text-lg flex justify-between items-center">
           <div className="flex items-center gap-3">
