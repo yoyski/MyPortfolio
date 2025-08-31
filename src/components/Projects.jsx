@@ -8,6 +8,7 @@ import {
 import { faJs, faHtml5, faPython, faNodeJs } from "@fortawesome/free-brands-svg-icons";
 
 import one from "../assets/quicksched.png";
+import two from "../assets/glucometer-logo.png";
 
 function Projects() {
   const projects = [
@@ -21,6 +22,7 @@ function Projects() {
     },
     {
       title: "GlucoMeter App",
+      img: two,
       description:
         "A web app to record, view, and manage glucose level test results with an easy-to-use interface.",
       link: "https://gluco-meter.vercel.app/",
