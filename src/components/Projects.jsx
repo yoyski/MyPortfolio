@@ -5,7 +5,7 @@ import {
   faArrowRight,
   faGlobe,
 } from "@fortawesome/free-solid-svg-icons";
-import { faJs, faHtml5, faPython } from "@fortawesome/free-brands-svg-icons";
+import { faJs, faHtml5, faPython, faNodeJs } from "@fortawesome/free-brands-svg-icons";
 
 import one from "../assets/quicksched.png";
 
@@ -20,10 +20,11 @@ function Projects() {
       lang: [faJs, faHtml5, faPython],
     },
     {
-      title: "Todo App",
-      description: "Helps manage your tasks efficiently and easily.",
-      link: "https://example.com/todo",
-      lang: [faJs, faHtml5, faPython],
+      title: "GlucoMeter App",
+      description:
+        "A web app to record, view, and manage glucose level test results with an easy-to-use interface.",
+      link: "https://gluco-meter.vercel.app/",
+      lang: [faJs, faHtml5, faNodeJs],
     },
     {
       title: "Weather App",
