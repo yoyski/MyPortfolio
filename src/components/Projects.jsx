@@ -25,7 +25,7 @@ function Projects() {
       img: two,
       description:
         "A web app to record, view, and manage glucose level test results with an easy-to-use interface.",
-      link: "https://gluco-meter.vercel.app/",
+      link: "https://glucometer-yoyski.vercel.app/",
       lang: [faJs, faHtml5, faNodeJs],
     },
     {
