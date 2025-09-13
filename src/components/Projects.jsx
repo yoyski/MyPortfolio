@@ -9,6 +9,7 @@ import { faJs, faHtml5, faPython, faNodeJs } from "@fortawesome/free-brands-svg-
 
 import one from "../assets/quicksched.png";
 import two from "../assets/glucometer-logo.png";
+import three from "../assets/personality-test.png";
 
 function Projects() {
   const projects = [
@@ -24,13 +25,14 @@ function Projects() {
       title: "GlucoMeter App",
       img: two,
       description:
-        "A web app to record, view, and manage glucose level test results with an easy-to-use interface.",
+        "A web app that lets you record, view, and manage your glucose level test results. It’s easy to use, helps you keep track of your results over time, and makes monitoring your health simpler.",
       link: "https://glucometer-yoyski.vercel.app/",
       lang: [faJs, faHtml5, faNodeJs],
     },
     {
       title: "Personality Test",
-      description: "Shows current weather based on your location.",
+      img: three,
+      description: "This is a game that will take you on a fun journey of self-discovery, helping you uncover the hidden super power within you — the unique strength that makes you stand out from everyone else",
       link: "https://personality-test-yoyski.vercel.app/",
       lang: [faJs, faHtml5, faPython],
     },
