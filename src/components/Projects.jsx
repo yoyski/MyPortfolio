@@ -29,9 +29,9 @@ function Projects() {
       lang: [faJs, faHtml5, faNodeJs],
     },
     {
-      title: "Weather App",
+      title: "Personality Test",
       description: "Shows current weather based on your location.",
-      link: "https://example.com/weather",
+      link: "https://personality-test-yoyski.vercel.app/",
       lang: [faJs, faHtml5, faPython],
     },
     {
