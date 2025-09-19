@@ -5,7 +5,12 @@ import {
   faArrowRight,
   faGlobe,
 } from "@fortawesome/free-solid-svg-icons";
-import { faJs, faReact, faNodeJs, faCss3 } from "@fortawesome/free-brands-svg-icons";
+import {
+  faJs,
+  faReact,
+  faNodeJs,
+  faCss3,
+} from "@fortawesome/free-brands-svg-icons";
 import { SiMongodb, SiTailwindcss, SiExpress } from "react-icons/si";
 
 import one from "../assets/quicksched.png";
@@ -28,12 +33,13 @@ function Projects() {
       description:
         "A web app that lets you record, view, and manage your glucose level test results. It’s easy to use, helps you keep track of your results over time, and makes monitoring your health simpler.",
       link: "https://glucometer-yoyski.vercel.app/",
-      lang: [SiMongodb, SiExpress, faReact, faNodejs, siTailwindcss],
+      lang: [SiMongodb, SiExpress, faReact, faNodeJs, SiTailwindcss],
     },
     {
       title: "Personality Test",
       img: three,
-      description: "This is a game that will take you on a fun journey of self-discovery, helping you uncover the hidden super power within you — the unique strength that makes you stand out from everyone else",
+      description:
+        "This is a game that will take you on a fun journey of self-discovery, helping you uncover the hidden super power within you — the unique strength that makes you stand out from everyone else",
       link: "https://personality-test-yoyski.vercel.app/",
       lang: [faReact, faCss3],
     },
@@ -41,13 +47,13 @@ function Projects() {
       title: "Blog Site",
       description: "A clean and minimal blogging platform.",
       link: "https://example.com/blog",
-      lang: [faJs, faHtml5, faPython],
+      lang: [faJs],
     },
     {
       title: "Portfolio",
       description: "My personal portfolio showcasing projects and skills.",
       link: "https://example.com/portfolio",
-      lang: [faJs, faHtml5, faPython],
+      lang: [faJs],
     },
   ];
 
@@ -140,24 +146,30 @@ function Projects() {
 
                   <div className="flex justify-between items-center">
                     <button
-                      className="bg-blue-500 hover:bg-blue-600 text-white p-2 px-4 rounded-full shadow cursor-pointer"
+                      className="bg-blue-500 hover:bg-blue-600 text-white p-2 px-4 rounded-full shadow cursor-pointer flex items-center"
                       onClick={() => window.open(project.link, "_blank")}
                     >
                       <FontAwesomeIcon
                         icon={faGlobe}
-                        className="text-white mr-2"
+                        className="text-white sm:mr-2"
                       />
-                      Visit
+                      <span className="hidden sm:inline">Visit</span>
                     </button>
 
-                    <div className="flex items-center gap-1">
-                      {project.lang.map((icon, index) => (
-                        <FontAwesomeIcon
-                          key={index}
-                          icon={icon}
-                          className="text-2xl text-white"
-                        />
-                      ))}
+                    <div className="flex items-center gap-2">
+                      {project.lang.map((Icon, index) =>
+                        typeof Icon === "object" ? (
+                          // Font Awesome icon
+                          <FontAwesomeIcon
+                            key={index}
+                            icon={Icon}
+                            className="text-2xl text-white"
+                          />
+                        ) : (
+                          // React-Icons (SimpleIcons) component
+                          <Icon key={index} className="text-2xl text-white" />
+                        )
+                      )}
                     </div>
                   </div>
                 </div>
