@@ -5,7 +5,8 @@ import {
   faArrowRight,
   faGlobe,
 } from "@fortawesome/free-solid-svg-icons";
-import { faJs, faHtml5, faPython, faNodeJs } from "@fortawesome/free-brands-svg-icons";
+import { faJs, faReact, faNodeJs, faCss3 } from "@fortawesome/free-brands-svg-icons";
+import { SiMongodb, SiTailwindcss, SiExpress } from "react-icons/si";
 
 import one from "../assets/quicksched.png";
 import two from "../assets/glucometer-logo.png";
@@ -19,7 +20,7 @@ function Projects() {
       description:
         "This is my first ever progressive web app — QuickSched is a modern and responsive scheduling tool designed to streamline Facebook post management for school organizations. It allows admins to create, categorize, and visually track scheduled posts with an intuitive interface and calendar view, all from both desktop and mobile devices.",
       link: "https://quicksched-app.vercel.app/",
-      lang: [faJs, faHtml5, faPython],
+      lang: [SiMongodb, SiExpress, faReact, faNodeJs, SiTailwindcss],
     },
     {
       title: "GlucoMeter App",
@@ -27,14 +28,14 @@ function Projects() {
       description:
         "A web app that lets you record, view, and manage your glucose level test results. It’s easy to use, helps you keep track of your results over time, and makes monitoring your health simpler.",
       link: "https://glucometer-yoyski.vercel.app/",
-      lang: [faJs, faHtml5, faNodeJs],
+      lang: [SiMongodb, SiExpress, faReact, faNodejs, siTailwindcss],
     },
     {
       title: "Personality Test",
       img: three,
       description: "This is a game that will take you on a fun journey of self-discovery, helping you uncover the hidden super power within you — the unique strength that makes you stand out from everyone else",
       link: "https://personality-test-yoyski.vercel.app/",
-      lang: [faJs, faHtml5, faPython],
+      lang: [faReact, faCss3],
     },
     {
       title: "Blog Site",
